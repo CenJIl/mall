@@ -16,7 +16,7 @@ import java.util.Date;
  */
 @Data
 @Entity
-@ApiModel("商品基本信息表")
+@ApiModel("商品基本信息")
 public class Goods {
 
     @Id

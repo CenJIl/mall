@@ -9,12 +9,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date 2019/9/3 10:23
  */
 @SpringBootApplication
-@EnableSwagger2
 public class MallApplication {
-
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         SpringApplication.run(MallApplication.class, args);
     }
-
 
 }

@@ -1,13 +1,10 @@
 package com.cenjil.config;
 
-import org.springframework.context.annotation.Bean;
+import com.cenjil.controller.websocket.WebSocketHandler;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.socket.TextMessage;
-import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
-import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 
 /**
  * @author CenJIl
@@ -19,21 +16,6 @@ import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(get(), "/websocket");
+        registry.addHandler(new WebSocketHandler(), "/websocket").setAllowedOrigins("*");
     }
-
-    @Bean
-    public TestHandler get() {
-        return new TestHandler();
-    }
-
-
-    static class TestHandler extends AbstractWebSocketHandler {
-        @Override
-        protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-            Object o=session;
-            System.out.println(o);
-        }
-    }
-
 }

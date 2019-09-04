@@ -7,6 +7,7 @@ import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Date;
  */
 @Data
 @Entity
-@ApiModel("用户评论表")
+@ApiModel("用户评论")
 public class Comment {
 
     @Id
@@ -27,9 +28,11 @@ public class Comment {
     private String review;
 
     @ApiModelProperty("用户评分")
+    @Pattern(regexp = "[0-9]+")
     private Integer point;
 
     @ApiModelProperty("点赞数量")
+    @Pattern(regexp = "[0-9]+")
     private Integer like;
 
     @ApiModelProperty("评论的时间")
