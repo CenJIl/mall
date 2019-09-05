@@ -3,9 +3,7 @@ package com.cenjil.controller.websocket;
 import com.cenjil.config.AppContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.web.socket.CloseStatus;
-import org.springframework.web.socket.TextMessage;
-import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.*;
 import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 
 /**
@@ -25,7 +23,16 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
         String get = message.getPayload();
         String post = "返回" + get;
         session.sendMessage(new TextMessage(post));
-        logger.debug(message.getPayload());
+        logger.debug("String: " +message.getPayload());
+    }
+
+    @Override
+    protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) throws Exception {
+        logger.debug("Byte[]: "+message.getPayload().toString());
+    }
+
+    @Override
+    protected void handlePongMessage(WebSocketSession session, PongMessage message) throws Exception {
     }
 
     @Override

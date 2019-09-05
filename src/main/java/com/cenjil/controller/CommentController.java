@@ -1,6 +1,7 @@
 package com.cenjil.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.cenjil.config.AppContext;
 import com.cenjil.entity.Comment;
 import com.cenjil.service.CommentService;
@@ -85,12 +86,12 @@ public class CommentController {
     }
 
 
-    @GetMapping("/websocket")
+    @PostMapping("/websocket")
     @ApiOperation("操作websocket")
-    public void test() {
+    public void test(@RequestBody JSONObject jsonObject) {
         try {
-
-            AppContext.getUserContext().getWebSocketSession().sendMessage(new TextMessage("调用成功"));
+            String r = jsonObject.toJSONString();
+            AppContext.getUserContext().getWebSocketSession().sendMessage(new TextMessage(r));
         } catch (Exception e) {
             e.printStackTrace();
         }
