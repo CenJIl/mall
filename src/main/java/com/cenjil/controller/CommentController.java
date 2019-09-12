@@ -3,6 +3,7 @@ package com.cenjil.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.cenjil.config.AppContext;
+import com.cenjil.config.annotation.Limit;
 import com.cenjil.entity.Comment;
 import com.cenjil.service.CommentService;
 import io.swagger.annotations.Api;
@@ -88,12 +89,12 @@ public class CommentController {
 
     @PostMapping("/websocket")
     @ApiOperation("操作websocket")
-    public void test(@RequestBody JSONObject jsonObject) {
-        try {
-            String r = jsonObject.toJSONString();
-            AppContext.getUserContext().getWebSocketSession().sendMessage(new TextMessage(r));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @Limit(name = "名称", key = "123", prefix = "1_", period = 1, count = 2)
+    public void test(@RequestBody JSONObject jsonObject) throws Exception {
+
+        String r = jsonObject.toJSONString();
+//        AppContext.getUserContext().getWebSocketSession().sendMessage(new TextMessage(r));
+        throw new RuntimeException("测试用异常");
+
     }
 }

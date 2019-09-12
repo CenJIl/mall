@@ -1,4 +1,4 @@
-package com.cenjil.config;
+package com.cenjil.config.start;
 
 import org.hibernate.boot.model.naming.Identifier;
 import org.hibernate.boot.model.naming.ImplicitBasicColumnNameSource;

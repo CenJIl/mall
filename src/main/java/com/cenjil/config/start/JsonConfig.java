@@ -1,4 +1,4 @@
-package com.cenjil.config;
+package com.cenjil.config.start;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;

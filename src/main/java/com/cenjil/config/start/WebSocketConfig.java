@@ -1,4 +1,4 @@
-package com.cenjil.config;
+package com.cenjil.config.start;
 
 import com.cenjil.controller.websocket.WebSocketHandler;
 import org.springframework.context.annotation.Configuration;

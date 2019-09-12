@@ -6,6 +6,9 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.web.socket.*;
 import org.springframework.web.socket.handler.AbstractWebSocketHandler;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
 /**
  * @author CenJIl
  * @date 2019/9/4 9:38
@@ -20,15 +23,14 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-        String get = message.getPayload();
-        String post = "返回" + get;
-        session.sendMessage(new TextMessage(post));
-        logger.debug("String: " +message.getPayload());
+        logger.debug("String: " + message.getPayload());
     }
 
     @Override
     protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) throws Exception {
-        logger.debug("Byte[]: "+message.getPayload().toString());
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("1.txt"));
+
+        logger.debug("Byte[]: " + message.getPayload().toString());
     }
 
     @Override

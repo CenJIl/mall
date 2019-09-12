@@ -23,7 +23,7 @@ public class AppContext implements ApplicationContextAware {
         private String userId;
         private String userName;
         private String password;
-        private WebSocketSession webSocketSession;
+        private WebSocketSession  webSocketSession;
     }
 
     @Override

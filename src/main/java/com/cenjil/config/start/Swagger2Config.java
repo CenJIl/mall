@@ -1,4 +1,4 @@
-package com.cenjil.config;
+package com.cenjil.config.start;
 
 
 import org.springframework.context.annotation.Bean;
@@ -28,7 +28,7 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(
                         new ApiInfo(
-                                "未来商城а版API文档",
+                                "API文档",
                                 "",
                                 "1.0",
                                 "",
