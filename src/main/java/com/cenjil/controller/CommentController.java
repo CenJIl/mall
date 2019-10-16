@@ -2,7 +2,6 @@ package com.cenjil.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.cenjil.config.AppContext;
 import com.cenjil.config.annotation.Limit;
 import com.cenjil.entity.Comment;
 import com.cenjil.service.CommentService;
@@ -11,7 +10,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.socket.TextMessage;
 
 /**
  * @author CenJIl

@@ -1,0 +1,8 @@
+PUT localhost/comment/review
+Content-Type: application/json
+
+{
+  "id" : 1
+}
+
+###
